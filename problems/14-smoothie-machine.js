@@ -23,8 +23,29 @@ console.log(smoothie2("pineapple"));
 // prints "I'm having a smoothie with apples and bananas and berries and pineapple"
 ***********************************************************************/
 
+function smoothieTransformer(arr) {
+  return (
+    `I'm having a smoothie with ` +
+    arr.map((el, i) => (i === 0 ? `${el}` : `and ${el}`)).join(" ")
+  );
+}
+
 const smoothieMachine = (...ingredients) => {
-  // Your code here
+  let moreIngredients = [];
+  return function (...args) {
+    if (!moreIngredients.length) {
+      moreIngredients = [...moreIngredients, ...args];
+    } else {
+      args.forEach((el) => {
+        if (!moreIngredients.includes(el)) moreIngredients.push(el);
+      });
+    }
+    if (ingredients.length) {
+      return smoothieTransformer([...ingredients, ...moreIngredients]);
+    } else {
+      return smoothieTransformer(moreIngredients);
+    }
+  };
 };
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
