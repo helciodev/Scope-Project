@@ -20,8 +20,13 @@ divideByFive(50); // returns 10
 
 function dynamicDivide(divisor) {
   // Your code here
-}
 
+  return (dividend) => {
+    return dividend / divisor;
+  };
+}
+const divideByFive = dynamicDivide(5);
+console.log(divideByFive(50)); // returns 10
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = dynamicDivide;
