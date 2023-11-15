@@ -19,12 +19,24 @@ console.log(table1(145)); // STILL prints 60
 Example 3:
 let table2 = recVolume(3); // returns a function
 table2(2); // returns a function
-console.log(table2(1)); // prints 6
+console.log(table2(1)); // prints 6f
 console.log(table2(75)); // STILL prints 6
 
 ***********************************************************************/
 function recVolume(height) {
-  // Your code here
+  let width = null;
+  let length = null;
+
+  return (arg) => {
+    if (!width) {
+      width = arg;
+    } else if (width && !length) {
+      length = arg;
+    }
+
+    if (height && width && length) return height * width * length;
+    return null;
+  };
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
