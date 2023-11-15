@@ -19,6 +19,12 @@ sandwich2("pb") // => "One sandwich with tomato and pb"
 
 function sandwichMaker() {
   // Your code here
+  const ingredients = ["tomato"];
+
+  return function (ingredient) {
+    ingredients.push(`and ${ingredient}`);
+    return `One sandwich with tomato ${ingredients.join(" ")}`;
+  };
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
