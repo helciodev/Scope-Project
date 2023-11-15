@@ -27,25 +27,20 @@ Example 4:
   console.log(threeDays()); // prints "Happy New Year!"
 
 ***********************************************************************/
-function countDownTimer(num) {}
+function countDownTimer(num) {
+  if (num === 0) {
+    return "Happy New Year!";
+  }
+  return () => {
+    num--;
+    if (num === 0) {
+      return "Happy New Year!";
+    } else {
+      return countDownTimer(num);
+    }
+  };
+}
 
-// Example 1:
-console.log(countDownTimer(0)); // prints "Happy New Year!"
-
-// Example 3:
-let oneDay = countDownTimer(1); // returns a function
-console.log(oneDay()); // prints "Happy New Year!"
-
-// Example 3:
-let twoDays = countDownTimer(2); // returns a function
-console.log(twoDays()); // returns a function
-console.log(twoDays()); // prints "Happy New Year!"
-
-// Example 4:
-let threeDays = countDownTimer(3); // returns a function
-console.log(threeDays()); // returns a function
-console.log(threeDays()); // returns a function
-console.log(threeDays()); // prints "Happy New Year!"
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = countDownTimer;
