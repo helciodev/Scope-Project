@@ -23,7 +23,7 @@ function sandwichMaker() {
 
   return function (ingredient) {
     ingredients.push(`and ${ingredient}`);
-    return `One sandwich with tomato ${ingredients.join(" ")}`;
+    return `One sandwich with ${ingredients.join(" ")}`;
   };
 }
 

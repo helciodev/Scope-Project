@@ -43,10 +43,28 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 ***********************************************************************/
 
 function curriedSum(numArgs) {
-  // Your code here
+  let nums = [];
+  return function _curriedSum(num) {
+    nums = [...nums, num];
+
+    if (nums.length === numArgs) {
+      return nums.reduce((total, currentEl) => total + currentEl, 0);
+    } else {
+      return _curriedSum;
+    }
+  };
 }
+
+const sum = curriedSum(4); // returns a function
+console.log(sum(5)); // returns a function
+console.log(sum(20)); // returns a function
+console.log(sum(30)); // returns a function
+console.log(sum(20)); // => returns 75
+
+const sum2 = curriedSum(3)(2)(1)(7); // => returns 10
+console.log(sum2);
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
-try {
+Example: try {
   module.exports = curriedSum;
 } catch (e) {
   return null;
